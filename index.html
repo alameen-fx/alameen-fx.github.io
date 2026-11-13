@@ -1,0 +1,851 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Al-ameen Mujaheed Ibrahim</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
+<style>
+/*
+  Layout: left-aligned editorial grid on one 8px spacing scale.
+  Hero pairs the name with an audience switch (security role or freelance project) beside a petrol spec sheet.
+  Work is an index of rows that open in place. Stack points back to the projects. Contact builds a draft to copy.
+  Type: Archivo only. Wide and heavy for display, normal width for reading. No italics, no gradients, no fades.
+*/
+:root {
+  --bg: #EFF6F7;
+  --surface: #DFECEF;
+  --line: #C2D6DB;
+  --fg: #0B1F2E;
+  --soft: #3A5865;
+  --heading: #0F4C5C;
+  --petrol: #0F4C5C;
+  --on-petrol: #EAF5F7;
+  --on-petrol-soft: #B9D6DD;
+  --lime: #C6F432;
+  --on-lime: #08202B;
+  --cyan: #0A7F96;
+  --focus: #0A7F96;
+  --focus-dark: #4FD8EE;
+  --burgundy: #6B1B2B;
+  --on-burgundy: #FBEFF1;
+  --deep: #081A2B;
+  --on-deep: #EAF5F7;
+  --on-deep-soft: #A9C4CD;
+  --edge: #0B1F2E;
+  --field-edge: #0B1F2E;
+
+  --s1: 8px;
+  --s2: 16px;
+  --s3: 24px;
+  --s4: 32px;
+  --s6: 48px;
+  --s8: 64px;
+  --s12: 96px;
+
+  --font: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #08192A;
+    --surface: #0E2B3D;
+    --line: #21495C;
+    --fg: #EAF4F6;
+    --soft: #A9C4CD;
+    --heading: #EAF4F6;
+    --cyan: #4FD8EE;
+    --focus: #4FD8EE;
+    --burgundy: #7A2234;
+    --edge: #C6F432;
+    --field-edge: #6D93A1;
+    --deep: #040E18;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #08192A;
+  --surface: #0E2B3D;
+  --line: #21495C;
+  --fg: #EAF4F6;
+  --soft: #A9C4CD;
+  --heading: #EAF4F6;
+  --cyan: #4FD8EE;
+  --focus: #4FD8EE;
+  --burgundy: #7A2234;
+  --edge: #C6F432;
+  --field-edge: #6D93A1;
+  --deep: #040E18;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+@media (prefers-reduced-motion: no-preference) { :root { scroll-behavior: smooth; } }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+::selection { background: var(--lime); color: var(--on-lime); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.on-dark :focus-visible { outline-color: var(--focus-dark); }
+
+h1, h2, h3, p, ul, dl, dd { margin: 0; }
+h1, h2, h3 { text-wrap: balance; color: var(--heading); }
+h1 {
+  font-size: clamp(2.5rem, 7vw, 4.25rem);
+  font-weight: 850;
+  font-stretch: 118%;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  font-stretch: 112%;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+h3 { font-size: 17px; font-weight: 700; }
+p { max-width: 62ch; }
+
+a { color: var(--heading); text-decoration-thickness: 2px; text-underline-offset: 4px; }
+a:hover { background: var(--lime); color: var(--on-lime); }
+
+.wrap {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 720px) {
+  .wrap {
+    padding-left: max(32px, env(safe-area-inset-left, 0px));
+    padding-right: max(32px, env(safe-area-inset-right, 0px));
+  }
+}
+.skip { position: absolute; left: -9999px; top: var(--s1); background: var(--lime); color: var(--on-lime); padding: var(--s1) var(--s2); border-radius: 6px; z-index: 20; font-weight: 700; }
+.skip:focus { left: var(--s2); }
+
+/* Header */
+.top {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 9;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+}
+.bar { display: flex; align-items: center; justify-content: space-between; gap: var(--s2); padding-block: var(--s2); }
+.brand { display: flex; align-items: center; gap: var(--s2); text-decoration: none; color: var(--fg); font-weight: 800; font-stretch: 112%; min-width: 0; }
+.brand:hover { background: none; color: var(--fg); }
+.mark { flex: none; width: 40px; height: 40px; display: grid; place-items: center; background: var(--lime); color: var(--on-lime); border-radius: 6px; font-weight: 900; font-stretch: 125%; font-size: 20px; }
+.brand-name { white-space: nowrap; }
+.top nav { display: flex; gap: var(--s1); flex-wrap: wrap; justify-content: flex-end; }
+.top nav a { padding: var(--s1) var(--s2); border-radius: 6px; text-decoration: none; font-weight: 600; color: var(--fg); }
+.top nav a:hover { background: var(--lime); color: var(--on-lime); }
+@media (max-width: 859px) { .brand-name { display: none; } }
+@media (max-width: 479px) { .top nav a { padding: var(--s1); } }
+
+section[id] { scroll-margin-top: 96px; }
+.band { padding-block: var(--s12); }
+@media (max-width: 719px) { .band { padding-block: var(--s8); } }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: var(--s1) var(--s3);
+  border: 2px solid var(--edge); border-radius: 6px;
+  font: inherit; font-weight: 700; font-stretch: 108%;
+  text-decoration: none; cursor: pointer; text-align: center;
+  transition: transform 120ms ease, box-shadow 120ms ease;
+}
+.btn-primary { background: var(--lime); color: var(--on-lime); }
+.btn-ghost { background: transparent; color: var(--fg); }
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--edge); }
+.btn-primary:hover { background: var(--lime); color: var(--on-lime); }
+.btn-ghost:hover { background: var(--fg); color: var(--bg); }
+.btn:active { transform: none; box-shadow: none; }
+@media (prefers-reduced-motion: reduce) { .btn { transition: none; } .btn:hover { transform: none; } }
+
+.chip {
+  display: inline-flex; align-items: center; gap: var(--s1);
+  min-height: 40px; padding: var(--s1) var(--s2);
+  background: var(--surface); color: var(--fg);
+  border: 0; border-radius: 6px;
+  font: inherit; font-size: 15px; font-weight: 600; cursor: pointer;
+}
+.chip .n { color: var(--soft); font-weight: 500; font-variant-numeric: tabular-nums; }
+.chip:hover { background: var(--fg); color: var(--bg); }
+.chip:hover .n { color: var(--bg); }
+.chip[aria-pressed="true"] { background: var(--lime); color: var(--on-lime); }
+.chip[aria-pressed="true"] .n { color: var(--on-lime); }
+.chips { display: flex; flex-wrap: wrap; gap: var(--s1); }
+
+/* Hero */
+.hero { padding-top: var(--s8); padding-bottom: var(--s12); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: var(--s8); align-items: start; }
+.hero-copy { display: grid; gap: var(--s4); justify-items: start; min-width: 0; }
+.tag { font-size: clamp(1.25rem, 2.6vw, 1.75rem); font-weight: 650; font-stretch: 104%; line-height: 1.3; max-width: 28ch; color: var(--fg); }
+.pick { display: grid; gap: var(--s1); max-width: 100%; }
+.pick-label { font-weight: 700; }
+.switch {
+  display: inline-grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 2px solid var(--edge); border-radius: 6px; overflow: hidden; max-width: 100%;
+}
+.switch button {
+  min-height: 48px; padding: var(--s1) var(--s2);
+  background: transparent; color: var(--fg);
+  border: 0; font: inherit; font-weight: 700; cursor: pointer;
+}
+.switch button + button { border-left: 2px solid var(--edge); }
+.switch button:hover { background: var(--fg); color: var(--bg); }
+.switch button[aria-pressed="true"] { background: var(--lime); color: var(--on-lime); }
+@media (min-width: 720px) { .switch button { padding: var(--s1) var(--s3); } }
+.lead { color: var(--soft); font-size: 18px; }
+.cta { display: flex; flex-wrap: wrap; gap: var(--s2); }
+
+.spec { background: var(--petrol); color: var(--on-petrol); border-radius: 12px; padding: var(--s4); }
+.spec h2 { color: var(--on-petrol); font-size: 22px; font-stretch: 108%; margin-bottom: var(--s3); }
+.spec dl { display: grid; gap: var(--s3); }
+.spec dt { color: var(--on-petrol-soft); font-size: 15px; }
+.spec dd { font-size: 18px; font-weight: 600; line-height: 1.4; }
+.spec .hl { color: var(--lime); }
+.spec a { color: var(--on-petrol); }
+@media (max-width: 899px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: var(--s6); }
+  .hero { padding-top: var(--s6); padding-bottom: var(--s8); }
+}
+@media (max-width: 479px) { .spec { padding: var(--s3); } }
+
+/* Work */
+.head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: var(--s2) var(--s4); }
+.head p { color: var(--soft); }
+.filters { margin-top: var(--s4); display: grid; gap: var(--s2); }
+.count { color: var(--soft); font-size: 15px; font-variant-numeric: tabular-nums; }
+
+.rows { list-style: none; padding: 0; margin-top: var(--s2); border-top: 1px solid var(--line); }
+.row { border-bottom: 1px solid var(--line); }
+.row[data-open="true"] { background: var(--surface); }
+.row-head {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.6fr) auto 24px;
+  align-items: center; gap: var(--s2);
+  width: 100%; padding: var(--s3) var(--s2);
+  background: none; border: 0; color: var(--fg);
+  font: inherit; text-align: left; cursor: pointer;
+}
+.row-head:hover { background: var(--surface); }
+.r-name { font-size: 22px; font-weight: 750; font-stretch: 110%; line-height: 1.2; color: var(--heading); }
+.r-tag { color: var(--soft); }
+.r-cat { display: inline-block; line-height: 32px; padding: 0 var(--s2); border-radius: 6px; background: var(--line); color: var(--fg); font-size: 15px; font-weight: 600; justify-self: end; }
+.r-cat.sec { background: var(--burgundy); color: var(--on-burgundy); }
+.row-head svg { width: 24px; height: 24px; stroke: var(--fg); fill: none; stroke-width: 2.5; stroke-linecap: square; }
+.row-head[aria-expanded="true"] .v { display: none; }
+.row-body { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: var(--s4); padding: var(--s1) var(--s2) var(--s4); }
+.row-body[hidden] { display: none; }
+.r-desc { max-width: 62ch; }
+.r-meta { display: grid; gap: var(--s2); align-content: start; }
+.r-meta dt { font-weight: 700; }
+.r-meta dd { color: var(--soft); }
+@media (max-width: 719px) {
+  .row-head { grid-template-columns: minmax(0, 1fr) auto 24px; grid-template-areas: "name cat plus" "tag tag tag"; gap: var(--s1) var(--s2); padding: var(--s2); }
+  .r-name { grid-area: name; }
+  .r-cat { grid-area: cat; }
+  .row-head svg { grid-area: plus; }
+  .r-tag { grid-area: tag; }
+  .row-body { grid-template-columns: minmax(0, 1fr); gap: var(--s3); }
+}
+
+/* Stack */
+.two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--s8); align-items: start; }
+.two > * { min-width: 0; }
+.stack-intro { display: grid; gap: var(--s2); color: var(--soft); }
+.groups { display: grid; gap: var(--s3); }
+.group { display: grid; gap: var(--s1); }
+.result { margin-top: var(--s4); padding: var(--s3); background: var(--surface); border-radius: 12px; display: grid; gap: var(--s2); }
+.links { display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); }
+.linkbtn { background: none; border: 0; padding: 0; font: inherit; font-weight: 700; color: var(--heading); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; cursor: pointer; }
+.linkbtn:hover { background: var(--lime); color: var(--on-lime); }
+.study { margin-top: var(--s4); display: grid; gap: var(--s1); }
+.study p { color: var(--soft); }
+@media (max-width: 899px) { .two { grid-template-columns: minmax(0, 1fr); gap: var(--s4); } }
+
+/* Credentials and freelance */
+.alt { background: var(--surface); }
+.plain { list-style: none; padding: 0; margin-top: var(--s3); border-top: 1px solid var(--line); }
+.plain li { display: grid; padding: var(--s2) 0; border-bottom: 1px solid var(--line); }
+.plain strong { font-size: 18px; font-weight: 700; }
+.plain span { color: var(--soft); }
+.cols { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s8); }
+.cols > * { min-width: 0; }
+.slug { display: block; margin-top: var(--s2); color: var(--soft); font-size: 15px; word-break: break-all; user-select: all; }
+@media (max-width: 899px) { .cols { grid-template-columns: minmax(0, 1fr); gap: var(--s6); } }
+
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--s8); margin-top: var(--s4); align-items: start; }
+.contact-grid > * { min-width: 0; }
+form { display: grid; gap: var(--s3); }
+.field { display: grid; gap: var(--s1); }
+label, .legend { font-weight: 700; }
+input, textarea {
+  width: 100%; font: inherit; color: var(--fg); background: var(--bg);
+  border: 2px solid var(--field-edge); border-radius: 6px; padding: var(--s2);
+}
+textarea { min-height: 176px; resize: vertical; }
+input::placeholder, textarea::placeholder { color: var(--soft); }
+.actions { display: flex; flex-wrap: wrap; gap: var(--s2); align-items: center; }
+.status { min-height: 1.6em; color: var(--soft); font-size: 15px; }
+.draft { background: var(--surface); border-radius: 12px; padding: var(--s3); white-space: pre-wrap; overflow-wrap: anywhere; font-size: 16px; }
+.mail-box { margin-top: var(--s3); display: grid; gap: var(--s1); }
+.addr { font-weight: 700; user-select: all; overflow-wrap: anywhere; }
+.note { color: var(--soft); font-size: 15px; }
+@media (max-width: 899px) { .contact-grid { grid-template-columns: minmax(0, 1fr); gap: var(--s6); } }
+
+/* Footer */
+.foot { background: var(--deep); color: var(--on-deep); padding-block: var(--s8); }
+.foot-in { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s4); }
+.foot p { color: var(--on-deep-soft); }
+.foot strong { color: var(--on-deep); font-size: 20px; font-weight: 800; font-stretch: 112%; }
+.foot a { color: var(--on-deep); }
+.foot ul { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: var(--s1) var(--s3); }
+html { color-scheme: light; }
+body { margin: 0; }
+</style>
+
+</head>
+<body>
+<a class="skip" href="#work">Skip to work</a>
+
+<header class="top">
+  <div class="wrap bar">
+    <a class="brand" href="#hero" aria-label="Al-ameen Mujaheed Ibrahim, top of page">
+      <span class="mark" aria-hidden="true">A</span>
+      <span class="brand-name">Al-ameen Mujaheed Ibrahim</span>
+    </a>
+    <nav aria-label="Sections">
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <h1>Al-ameen Mujaheed Ibrahim</h1>
+        <p class="tag" id="tag">I build security tools, and I'm looking for a SOC analyst or junior penetration tester role.</p>
+        <div class="pick">
+          <span class="pick-label" id="pick-label">I'm hiring for</span>
+          <div class="switch" role="group" aria-labelledby="pick-label">
+            <button type="button" id="mode-sec" aria-pressed="true">A security role</button>
+            <button type="button" id="mode-build" aria-pressed="false">A project</button>
+          </div>
+        </div>
+        <p class="lead" id="lead"></p>
+        <div class="cta">
+          <button type="button" class="btn btn-primary" id="ctaA">Write about a role</button>
+          <button type="button" class="btn btn-ghost" id="ctaB">See security work</button>
+        </div>
+      </div>
+
+      <aside class="spec on-dark" aria-labelledby="spec-title">
+        <h2 id="spec-title">At a glance</h2>
+        <dl>
+          <div><dt>Open to</dt><dd class="hl" id="openTo"></dd></div>
+          <div><dt>Studying</dt><dd>Computer Science at Ahmadu Bello University, Zaria. Class of 2026.</dd></div>
+          <div><dt>Certified</dt><dd>Huawei HCIA-Security V4.0, Huawei HCIA-Datacom V1.0, Cisco Introduction to Cybersecurity</dd></div>
+          <div><dt>Based in</dt><dd>Kaduna, Nigeria</dd></div>
+          <div><dt>Freelance</dt><dd>PeoplePerHour</dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <section class="band alt" id="work" aria-labelledby="work-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="work-title">Work</h2>
+        <p>Twelve projects. Pick a row to see what it does and what it runs on.</p>
+      </div>
+      <div class="filters">
+        <div class="chips" id="filters" role="group" aria-label="Filter projects by type"></div>
+        <p class="count" id="count" aria-live="polite"></p>
+      </div>
+      <ul class="rows" id="rows"></ul>
+    </div>
+  </section>
+
+  <section class="band" id="stack" aria-labelledby="stack-title">
+    <div class="wrap two">
+      <div class="stack-intro">
+        <h2 id="stack-title">Stack</h2>
+        <p>Pick a tool to see which projects use it. The number beside each tool is how many.</p>
+      </div>
+      <div>
+        <div class="groups" id="groups"></div>
+        <div class="result" id="result" aria-live="polite"></div>
+        <div class="study">
+          <h3>Studying and lab practice</h3>
+          <p>OWASP Juice Shop, Burp Suite, PortSwigger Web Academy, bug bounty practice, SIEM tools, and network security concepts such as VRRP and the principle of least privilege.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band alt" id="credentials" aria-labelledby="cred-title">
+    <div class="wrap cols">
+      <div>
+        <h2 id="cred-title">Credentials</h2>
+        <ul class="plain">
+          <li><strong>Huawei HCIA-Security V4.0</strong><span>Huawei. Valid through 23 October 2029.</span></li>
+          <li><strong>Huawei HCIA-Datacom V1.0</strong><span>Huawei. Data communication and networking.</span></li>
+          <li><strong>Introduction to Cybersecurity</strong><span>Cisco</span></li>
+          <li><strong>Computer Science</strong><span>Ahmadu Bello University, Zaria. Graduating 2026.</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2>Freelance</h2>
+        <ul class="plain">
+          <li><strong>Web development</strong><span>Business sites and platforms with admin dashboards, payments and bilingual support.</span></li>
+          <li><strong>AI agent development</strong><span>Agents that read an inbox, run research steps in order, or post on a schedule.</span></li>
+          <li><strong>Graphic design</strong><span>Brand identity and visual design.</span></li>
+          <li><strong>Content writing</strong><span>Professional bios and profile copy.</span></li>
+        </ul>
+        <span class="slug">PeoplePerHour profile: alameen_mujaheed-ibrahim-graphic-designs-and-programming-zxvqnavv</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="contact" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="head">
+        <h2 id="contact-title">Contact</h2>
+        <p>Tell me what you need. The draft on the right updates as you type. Copy it and send it to the address below.</p>
+      </div>
+      <div class="contact-grid">
+        <form id="contactForm" novalidate>
+          <div class="field">
+            <span class="legend" id="reason-label">What is this about?</span>
+            <div class="chips" id="reasons" role="group" aria-labelledby="reason-label"></div>
+          </div>
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" type="text" autocomplete="name" placeholder="Your name">
+          </div>
+          <div class="field">
+            <label for="msg">Message</label>
+            <textarea id="msg" placeholder="What you need, and by when."></textarea>
+          </div>
+          <div class="actions">
+            <button type="submit" class="btn btn-primary" id="copyDraft">Copy message</button>
+            <a class="btn btn-ghost" id="mail" href="#contact" target="_blank" rel="noopener">Open in email app</a>
+          </div>
+          <p class="status" id="status" role="status"></p>
+        </form>
+        <div>
+          <div class="draft" id="draft"></div>
+          <div class="mail-box">
+            <span>Send it to</span>
+            <span class="addr" id="addr">alameenmujaheedibrahim@gmail.com</span>
+            <div class="actions">
+              <button type="button" class="btn btn-ghost" id="copyAddr">Copy address</button>
+            </div>
+            <p class="note">The email app button depends on your browser and on how this page is opened. If nothing happens, copy the message instead.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot on-dark">
+  <div class="wrap foot-in">
+    <div>
+      <strong>Al-ameen Mujaheed Ibrahim</strong>
+      <p>Kaduna, Nigeria</p>
+    </div>
+    <ul>
+      <li><a href="https://github.com/alameen-fx" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/alameen-mujaheed-ibrahim-aa02713b6" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var EMAIL = "alameenmujaheedibrahim@gmail.com";
+
+  var PROJECTS = [
+    { id: "cybershield", name: "CyberShield", cat: "Security",
+      tagline: "Desktop security app and my final year project",
+      desc: "A desktop security app written in Python with a Tkinter interface. It checks files with the VirusTotal API and scans cryptocurrency addresses. I packaged it with PyInstaller and listed it on Gumroad, with the source protected using Cython and PyArmor.",
+      stack: ["Python", "Tkinter", "VirusTotal API", "PyInstaller", "Cython", "PyArmor"],
+      status: "Final year project. Listed on Gumroad." },
+    { id: "bugbot", name: "BugBot", cat: "Security",
+      tagline: "Vulnerability scanner built as a subscription product",
+      desc: "A vulnerability scanner with a FastAPI and PostgreSQL backend and a React dashboard. It runs 15 scan modules at the same time. Stripe handles billing across the Free, Starter, Pro and Enterprise tiers. Docker and Nginx handle deployment, and GitHub Actions runs the CI/CD pipeline. I also use it for bug bounty work.",
+      stack: ["Python", "FastAPI", "PostgreSQL", "React", "Stripe", "Docker", "Nginx", "GitHub Actions"],
+      status: "Launch-ready." },
+    { id: "redsight", name: "RedSight AI", cat: "Security",
+      tagline: "Pentest copilot and lab trainer for the desktop",
+      desc: "A desktop copilot for penetration testers, written in Python with a Tkinter interface. It stores engagements and findings in SQLite and reads nmap XML, JSON and pasted text. The Claude API explains and categorizes findings, gives graduated hints for lab exercises such as OWASP Juice Shop, and drafts reports. It refuses to write exploit code. Reports export to Markdown and PDF.",
+      stack: ["Python", "Tkinter", "SQLite", "nmap", "Claude API"],
+      status: "In development. For my own lab and bug bounty use now, with a sale planned later." },
+    { id: "apex", name: "APEX TRADER PRO", cat: "Trading",
+      tagline: "Trading bot for Android, iOS and desktop",
+      desc: "A trading bot with a Flutter app and a FastAPI backend, built for Android, iOS, Windows, Linux and macOS. MetaApi connects it to MT5. The strategy engine uses ICT and Smart Money concepts: order blocks, fair value gaps, breaker blocks, liquidity sweeps, and market structure shifts. It covers XAUUSD, EURUSD, NAS100 and USDJPY. Earlier versions were a browser forex dashboard and an MQL5 Expert Advisor with trailing stops and session filters.",
+      stack: ["Flutter", "Python", "FastAPI", "MetaApi", "MQL5"],
+      status: "" },
+    { id: "amkaafaf", name: "AMKAAFAF", cat: "Web",
+      tagline: "Agribusiness platform in English and Hausa",
+      desc: "A site and investment platform for AMKAAFAF Integrated Farm and Investment Ltd, a client based in Sokoto and Kebbi. It is one large HTML file with simulated live grain and livestock prices, WebGL animation, investment tier calculators, and an English and Hausa toggle.",
+      stack: ["HTML", "WebGL"],
+      status: "Client project." },
+    { id: "vault", name: "VAULT", cat: "Web",
+      tagline: "Subscription content platform with three ways to pay",
+      desc: "A subscription content platform with a black and red editorial design. Members pay by Naira bank transfer, Paystack or USDT. It has a viewer mode and an admin mode.",
+      stack: ["Paystack"],
+      status: "Shipped." },
+    { id: "season4", name: "Season 4 Bakery", cat: "Web",
+      tagline: "Bakery website with an admin dashboard",
+      desc: "A luxury bakery website for a business in Kaduna. It runs on a Firebase Firestore backend with an admin dashboard.",
+      stack: ["Firebase"],
+      status: "Completed." },
+    { id: "london", name: "London Plumbing & Heating Supplies", cat: "Web",
+      tagline: "Website for a plumbing and heating supplier",
+      desc: "A production website for a plumbing and heating supplies business.",
+      stack: [],
+      status: "Production site." },
+    { id: "inboxagent", name: "InboxAgent AI", cat: "Automation",
+      tagline: "Gmail agent with Draft and Auto-Send modes",
+      desc: "An agent that watches a Gmail inbox and writes replies with AI. In Draft mode it leaves replies for you to review. In Auto-Send mode it sends them itself.",
+      stack: [], status: "" },
+    { id: "shopify", name: "Shopify AI Agents", cat: "Automation",
+      tagline: "Four AI agents run in sequence",
+      desc: "A dashboard that runs four Claude agents one after another. The first researches products, the second picks a business model, the third writes copy and the fourth handles email marketing.",
+      stack: ["Claude API", "Shopify"], status: "" },
+    { id: "shorts", name: "YouTube Shorts pipeline", cat: "Automation",
+      tagline: "Automated YouTube Shorts pipeline",
+      desc: "An automated pipeline that makes YouTube Shorts. It uses Groq, edge-tts, Pixabay, FFmpeg and n8n, and publishes through the YouTube Data API v3.",
+      stack: ["Groq", "edge-tts", "Pixabay", "FFmpeg", "n8n", "YouTube Data API v3"],
+      status: "Runs locally on Windows." },
+    { id: "social", name: "Social posting bot", cat: "Automation",
+      tagline: "Posting bot for four platforms",
+      desc: "A bot that posts cybersecurity and comedy content to YouTube, TikTok, Instagram and Facebook three times a day.",
+      stack: [], status: "Posts three times a day." }
+  ];
+  var byId = {};
+  PROJECTS.forEach(function (p) { byId[p.id] = p; });
+
+  var CATS = [["all", "All"], ["Security", "Security"], ["Web", "Web"], ["Automation", "Automation"], ["Trading", "Trading"]];
+  var GROUPS = [
+    ["Languages, apps and data", ["Python", "FastAPI", "React", "Flutter", "Tkinter", "WebGL", "PostgreSQL", "SQLite", "Firebase"]],
+    ["Security tooling", ["nmap", "VirusTotal API"]],
+    ["Payments and delivery", ["Stripe", "Paystack", "Docker", "GitHub Actions", "n8n", "FFmpeg"]],
+    ["AI", ["Claude API", "Groq"]],
+    ["Trading", ["MetaApi", "MQL5"]]
+  ];
+  var ORDER = {
+    sec: ["cybershield", "bugbot", "redsight", "inboxagent", "shopify", "apex", "amkaafaf", "vault", "season4", "london", "shorts", "social"],
+    build: ["vault", "amkaafaf", "season4", "london", "bugbot", "inboxagent", "shopify", "apex", "cybershield", "redsight", "shorts", "social"]
+  };
+  var MODES = {
+    sec: {
+      tag: "I build security tools, and I'm looking for a SOC analyst or junior penetration tester role.",
+      lead: "My final year project, CyberShield, is a desktop security app listed on Gumroad. BugBot is a vulnerability scanner with 15 scan modules and Stripe billing. RedSight AI is a pentest copilot that refuses to write exploit code. I hold Huawei HCIA-Security V4.0 and the Cisco Introduction to Cybersecurity certificate.",
+      openTo: "SOC analyst and junior penetration tester roles",
+      ctaA: "Write about a role", ctaB: "See security work",
+      reason: "role", cat: "Security"
+    },
+    build: {
+      tag: "I build websites, web apps and AI agents for clients, and I design their brands.",
+      lead: "VAULT takes Naira bank transfers, Paystack and USDT. AMKAAFAF has an English and Hausa toggle and investment calculators. Season 4 Bakery runs an admin dashboard on Firebase. I take freelance work through PeoplePerHour.",
+      openTo: "Freelance web, AI agent and design projects",
+      ctaA: "Write about a project", ctaB: "See web work",
+      reason: "project", cat: "Web"
+    }
+  };
+  var REASONS = {
+    role: { label: "Security role", subject: "Security role" },
+    project: { label: "Freelance project", subject: "Freelance project" },
+    other: { label: "Something else", subject: "Hello from your portfolio" }
+  };
+
+  var state = { mode: "sec", cat: "all", open: "cybershield", tech: "Python", reason: "role" };
+
+  function $(s) { return document.querySelector(s); }
+  function el(tag, props) {
+    var n = document.createElement(tag);
+    props = props || {};
+    Object.keys(props).forEach(function (k) {
+      var v = props[k];
+      if (k === "class") n.className = v;
+      else if (k === "text") n.textContent = v;
+      else if (v === true) n.setAttribute(k, "");
+      else if (v !== false && v != null) n.setAttribute(k, v);
+    });
+    for (var i = 2; i < arguments.length; i++) {
+      var c = arguments[i];
+      if (c != null) n.append(c);
+    }
+    return n;
+  }
+  function motion() {
+    return window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+  }
+  function plusIcon() {
+    var s = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    s.setAttribute("viewBox", "0 0 24 24");
+    s.setAttribute("aria-hidden", "true");
+    var h = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    h.setAttribute("d", "M5 12h14");
+    var v = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    v.setAttribute("d", "M12 5v14");
+    v.setAttribute("class", "v");
+    s.append(h, v);
+    return s;
+  }
+
+  /* Hero */
+  function renderHero() {
+    var m = MODES[state.mode];
+    $("#tag").textContent = m.tag;
+    $("#lead").textContent = m.lead;
+    $("#openTo").textContent = m.openTo;
+    $("#ctaA").textContent = m.ctaA;
+    $("#ctaB").textContent = m.ctaB;
+    $("#mode-sec").setAttribute("aria-pressed", String(state.mode === "sec"));
+    $("#mode-build").setAttribute("aria-pressed", String(state.mode === "build"));
+  }
+
+  /* Work */
+  function visible() {
+    var list = ORDER[state.mode].map(function (id) { return byId[id]; });
+    return state.cat === "all" ? list : list.filter(function (p) { return p.cat === state.cat; });
+  }
+  function renderFilters() {
+    var box = $("#filters");
+    box.replaceChildren();
+    CATS.forEach(function (c) {
+      var n = c[0] === "all" ? PROJECTS.length : PROJECTS.filter(function (p) { return p.cat === c[0]; }).length;
+      box.append(el("button", { class: "chip", type: "button", "aria-pressed": String(state.cat === c[0]), "data-cat": c[0] },
+        c[1], el("span", { class: "n", text: String(n) })));
+    });
+  }
+  function meta(p) {
+    var dl = el("dl", { class: "r-meta" });
+    if (p.stack.length) dl.append(el("div", {}, el("dt", { text: "Built with" }), el("dd", { text: p.stack.join(", ") })));
+    if (p.status) dl.append(el("div", {}, el("dt", { text: "Where it stands" }), el("dd", { text: p.status })));
+    return dl;
+  }
+  function renderRows() {
+    var list = $("#rows");
+    list.replaceChildren();
+    var items = visible();
+    if (!items.some(function (p) { return p.id === state.open; })) state.open = items.length ? items[0].id : null;
+    items.forEach(function (p) {
+      var open = p.id === state.open;
+      var bodyId = "body-" + p.id;
+      var head = el("button", { class: "row-head", type: "button", "aria-expanded": String(open), "aria-controls": bodyId, "data-id": p.id },
+        el("span", { class: "r-name", text: p.name }),
+        el("span", { class: "r-tag", text: p.tagline }),
+        el("span", { class: "r-cat" + (p.cat === "Security" ? " sec" : ""), text: p.cat }),
+        plusIcon());
+      var body = el("div", { class: "row-body", id: bodyId, hidden: !open },
+        el("p", { class: "r-desc", text: p.desc }), meta(p));
+      list.append(el("li", { class: "row", "data-open": String(open) }, head, body));
+    });
+    $("#count").textContent = "Showing " + items.length + " of " + PROJECTS.length + " projects";
+  }
+  function setOpen(id) {
+    state.open = id;
+    document.querySelectorAll("#rows .row").forEach(function (li) {
+      var h = li.querySelector(".row-head");
+      var o = h.getAttribute("data-id") === id;
+      h.setAttribute("aria-expanded", String(o));
+      li.setAttribute("data-open", String(o));
+      li.querySelector(".row-body").hidden = !o;
+    });
+  }
+  function jumpTo(id) {
+    if (state.cat !== "all" && byId[id].cat !== state.cat) { state.cat = "all"; renderFilters(); }
+    state.open = id;
+    renderRows();
+    var t = document.querySelector('.row-head[data-id="' + id + '"]');
+    if (t) {
+      t.focus({ preventScroll: true });
+      t.scrollIntoView({ behavior: motion(), block: "center" });
+    }
+  }
+  function scrollToSection(id) {
+    var s = document.getElementById(id);
+    if (s) s.scrollIntoView({ behavior: motion(), block: "start" });
+  }
+
+  /* Stack */
+  function projectsFor(t) { return PROJECTS.filter(function (p) { return p.stack.indexOf(t) !== -1; }); }
+  function renderStack() {
+    var g = $("#groups");
+    g.replaceChildren();
+    GROUPS.forEach(function (grp) {
+      var chips = el("div", { class: "chips" });
+      grp[1].forEach(function (t) {
+        chips.append(el("button", { class: "chip", type: "button", "aria-pressed": String(state.tech === t), "data-tech": t },
+          t, el("span", { class: "n", text: String(projectsFor(t).length) })));
+      });
+      g.append(el("div", { class: "group" }, el("h3", { text: grp[0] }), chips));
+    });
+    var r = $("#result");
+    r.replaceChildren();
+    var ps = projectsFor(state.tech);
+    r.append(el("p", { text: state.tech + " is used in " + ps.length + (ps.length === 1 ? " project:" : " projects:") }));
+    var links = el("div", { class: "links" });
+    ps.forEach(function (p) {
+      links.append(el("button", { class: "linkbtn", type: "button", "data-jump": p.id, text: p.name }));
+    });
+    r.append(links);
+  }
+
+  /* Contact */
+  var statusTimer;
+  function say(msg) {
+    var s = $("#status");
+    s.textContent = msg;
+    clearTimeout(statusTimer);
+    if (msg) statusTimer = setTimeout(function () { s.textContent = ""; }, 4000);
+  }
+  function parts() {
+    var r = REASONS[state.reason];
+    var name = $("#name").value.trim() || "Your name";
+    var msg = $("#msg").value.trim() || "Write your message here.";
+    return { subject: r.subject, body: "Hello Al-ameen,\n\n" + msg + "\n\n" + name };
+  }
+  function renderContact() {
+    var box = $("#reasons");
+    box.replaceChildren();
+    Object.keys(REASONS).forEach(function (k) {
+      box.append(el("button", { class: "chip", type: "button", "aria-pressed": String(state.reason === k), "data-reason": k, text: REASONS[k].label }));
+    });
+    var p = parts();
+    $("#draft").textContent = "To: " + EMAIL + "\nSubject: " + p.subject + "\n\n" + p.body;
+    $("#mail").setAttribute("href", "mailto:" + EMAIL + "?subject=" + encodeURIComponent(p.subject) + "&body=" + encodeURIComponent(p.body));
+  }
+  function copyFrom(text, node, done) {
+    var fallback = function () {
+      try {
+        var range = document.createRange();
+        range.selectNodeContents(node);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+        say("Selected. Press Ctrl+C or Cmd+C to copy.");
+      } catch (e) {
+        say("Copying is blocked here. Select the text and copy it by hand.");
+      }
+    };
+    try {
+      navigator.clipboard.writeText(text).then(function () { say(done); }, fallback);
+    } catch (e) {
+      fallback();
+    }
+  }
+
+  /* Events */
+  $("#mode-sec").addEventListener("click", function () { setMode("sec"); });
+  $("#mode-build").addEventListener("click", function () { setMode("build"); });
+  function setMode(k) {
+    if (state.mode === k) return;
+    state.mode = k;
+    state.cat = "all";
+    state.open = ORDER[k][0];
+    state.reason = MODES[k].reason;
+    renderHero();
+    renderFilters();
+    renderRows();
+    renderContact();
+  }
+  $("#ctaA").addEventListener("click", function () {
+    state.reason = MODES[state.mode].reason;
+    renderContact();
+    scrollToSection("contact");
+  });
+  $("#ctaB").addEventListener("click", function () {
+    state.cat = MODES[state.mode].cat;
+    state.open = null;
+    renderFilters();
+    renderRows();
+    scrollToSection("work");
+  });
+  $("#filters").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-cat]");
+    if (!b) return;
+    state.cat = b.getAttribute("data-cat");
+    state.open = null;
+    renderFilters();
+    renderRows();
+  });
+  $("#rows").addEventListener("click", function (e) {
+    var b = e.target.closest(".row-head");
+    if (!b) return;
+    var id = b.getAttribute("data-id");
+    setOpen(state.open === id ? null : id);
+  });
+  $("#groups").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-tech]");
+    if (!b) return;
+    state.tech = b.getAttribute("data-tech");
+    renderStack();
+    var again = document.querySelector('#groups [data-tech="' + state.tech + '"]');
+    if (again) again.focus();
+  });
+  $("#result").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-jump]");
+    if (b) jumpTo(b.getAttribute("data-jump"));
+  });
+  $("#reasons").addEventListener("click", function (e) {
+    var b = e.target.closest("[data-reason]");
+    if (!b) return;
+    state.reason = b.getAttribute("data-reason");
+    renderContact();
+    var again = document.querySelector('#reasons [data-reason="' + state.reason + '"]');
+    if (again) again.focus();
+  });
+  $("#name").addEventListener("input", renderContact);
+  $("#msg").addEventListener("input", renderContact);
+  $("#contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!$("#msg").value.trim()) {
+      say("Add a message first, then copy it.");
+      $("#msg").focus();
+      return;
+    }
+    copyFrom($("#draft").textContent, $("#draft"), "Copied. Paste it into your email.");
+  });
+  $("#copyAddr").addEventListener("click", function () {
+    copyFrom(EMAIL, $("#addr"), "Address copied.");
+  });
+
+  renderHero();
+  renderFilters();
+  renderRows();
+  renderStack();
+  renderContact();
+})();
+</script>
+</body>
+</html>
